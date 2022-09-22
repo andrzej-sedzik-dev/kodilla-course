@@ -17,8 +17,6 @@ public class ShapeCollectorTestSuite {
     @Test
     public void shouldAddShape() {
 
-        // to mi wstawi obiekt, który udaje, że implementuje shape (ma metody getArea, getName).
-        Shape abc = Mockito.mock(Shape.class);
 
         // given
         // ShapeCollector shapeCollector = new ShapeCollector();

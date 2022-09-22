@@ -19,8 +19,8 @@ public class ShapeCollector {
         return shapes.get(index);
     }
 
-    public void showFigures() {
-
+    public void showFigures(Shape shape) {
+        System.out.println(shape.getShapeName());
     }
 
 
