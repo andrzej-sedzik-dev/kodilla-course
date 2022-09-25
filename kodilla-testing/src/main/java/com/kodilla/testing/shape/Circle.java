@@ -33,4 +33,11 @@ public class Circle implements Shape {
         long temp = Double.doubleToLongBits(radius);
         return (int) (temp ^ (temp >>> 32));
     }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                '}';
+    }
 }

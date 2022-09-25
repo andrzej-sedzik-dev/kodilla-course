@@ -10,7 +10,7 @@ public class ShapeCollectorTestSuite {
     private ShapeCollector shapeCollector;
 
     @BeforeEach
-    private void init(){
+    public void init(){
         shapeCollector = new ShapeCollector();
     }
 
@@ -47,4 +47,26 @@ public class ShapeCollectorTestSuite {
         Assertions.assertEquals(triangle, result);
         Assertions.assertTrue(deleted);
     }
+
+
+    @Test
+    public void shouldShowShapes() {
+        // given
+        Shape circle = new Circle(5);
+        Shape triangle = new Triangle(5, 5);
+        Shape square = new Square(5);
+
+        // when
+        shapeCollector.addFigure(circle);
+        shapeCollector.addFigure(triangle);
+
+        shapeCollector.addFigure(square);
+
+        // then
+        shapeCollector.showFigures();
+
+    }
+
+
+
 }

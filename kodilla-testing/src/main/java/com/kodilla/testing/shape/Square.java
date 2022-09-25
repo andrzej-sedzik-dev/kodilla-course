@@ -33,4 +33,11 @@ public class Square implements Shape {
         long temp = Double.doubleToLongBits(width);
         return (int) (temp ^ (temp >>> 32));
     }
+
+    @Override
+    public String toString() {
+        return "Square{" +
+                "width=" + width +
+                '}';
+    }
 }

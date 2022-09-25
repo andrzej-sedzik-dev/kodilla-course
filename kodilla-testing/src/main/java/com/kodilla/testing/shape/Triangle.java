@@ -41,4 +41,12 @@ public class Triangle implements Shape {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "width=" + width +
+                ", height=" + height +
+                '}';
+    }
 }

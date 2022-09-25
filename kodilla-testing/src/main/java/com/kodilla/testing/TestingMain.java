@@ -1,6 +1,8 @@
 package com.kodilla.testing;
 
 import com.kodilla.testing.calculator.Calculator;
+import com.kodilla.testing.shape.Shape;
+import com.kodilla.testing.shape.ShapeCollector;
 import com.kodilla.testing.user.SimpleUser;
 
 class TestingMain {
@@ -30,7 +32,6 @@ class TestingMain {
         System.out.println("Test - drugi test jednostkowy:");
 
 
-
         int subtract = calculator.getA() - calculator.getB();
         if (subtract == 2) {
             System.out.println("test OK");
@@ -38,7 +39,6 @@ class TestingMain {
             System.out.println("!Error");
         }
         System.out.println("Test - trzeci test jednostkowy:");
-
 
     }
 }
