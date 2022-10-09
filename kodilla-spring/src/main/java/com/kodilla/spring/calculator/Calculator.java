@@ -11,27 +11,27 @@ public class Calculator {
 
 
     double add(double a, double b) {
-        display.displayValue(a);
-        display.displayValue(b);
-        return a + b;
+        double val = a + b;
+        display.displayValue(val);
+        return val;
     }
 
     double sub(double a, double b) {
-        display.displayValue(a);
-        display.displayValue(b);
-        return a - b;
+        double val = a - b;
+        display.displayValue(val);
+        return val;
     }
 
     double mul(double a, double b) {
-        display.displayValue(a);
-        display.displayValue(b);
-        return a * b;
+        double val = a * b;
+        display.displayValue(val);
+        return val;
     }
 
     double div(double a, double b) {
-        display.displayValue(a);
-        display.displayValue(b);
-        return a / b;
+        double val = a / b;
+        display.displayValue(val);
+        return val;
     }
 
 
