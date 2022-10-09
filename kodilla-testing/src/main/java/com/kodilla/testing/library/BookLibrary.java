@@ -21,10 +21,10 @@ public class BookLibrary {
    }
 
 
-   // to do
    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-      List<Book> bookList = new ArrayList<Book>();
-      return bookList;
+
+      // używamy danych z mocka
+      return libraryDatabase.listBooksInHandsOf(libraryUser);
    }
 
 
