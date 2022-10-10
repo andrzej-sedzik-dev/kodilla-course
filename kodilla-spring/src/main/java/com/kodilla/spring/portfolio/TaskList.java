@@ -7,9 +7,11 @@ public class TaskList {
 
     List<String> tasks;
 
-    public TaskList(List<String> tasks) {
+    public TaskList() {
         tasks = new ArrayList<>();
     }
 
-
+    public List<String> getTasks() {
+        return tasks;
+    }
 }

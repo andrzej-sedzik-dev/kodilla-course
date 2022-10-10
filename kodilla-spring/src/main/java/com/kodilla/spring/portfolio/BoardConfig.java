@@ -1,7 +1,10 @@
 package com.kodilla.spring.portfolio;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.config.Task;
 
 @Configuration
 public class BoardConfig {
@@ -11,25 +14,41 @@ public class BoardConfig {
     // która utworzy trzy różne beany reprezentujące listy zadań
     // i wstrzyknie je do beana klasy Board.
 
+    @Autowired
+    @Qualifier("toDoList")
+    TaskList toDoList;
+
+    @Autowired
+    @Qualifier("inProgressList")
+    TaskList inProgressList;
+
+    @Autowired
+    @Qualifier("doneList")
+    TaskList doneList;
+
 
     @Bean
-    public Board toDoList() {
-        return new Board();
-    }
-
-    @Bean
-    public Board inProgressList() {
-        return new Board();
+    Board getBoard() {
+        return new Board(toDoList, inProgressList, doneList);
     }
 
 
-    @Bean
-    public Board doneList() {
-        return new Board();
+    @Bean(name = "toDoList")
+    public TaskList toDoList() {
+        return new TaskList();
     }
 
 
+    @Bean(name = "inProgressList")
+    public TaskList inProgressList() {
+        return new TaskList();
+    }
 
+
+    @Bean(name = "doneList")
+    public TaskList doneList() {
+        return new TaskList();
+    }
 
 
 }

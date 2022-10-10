@@ -14,9 +14,16 @@ public class Board {
         this.doneList = doneList;
     }
 
-    public Board() {
+
+    public TaskList getToDoList() {
+        return toDoList;
     }
 
+    public TaskList getInProgressList() {
+        return inProgressList;
+    }
 
-
+    public TaskList getDoneList() {
+        return doneList;
+    }
 }
