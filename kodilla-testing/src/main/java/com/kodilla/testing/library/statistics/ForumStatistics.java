@@ -1,6 +1,4 @@
-package com.kodilla.testing.forum.statistics;
-
-import java.util.List;
+package com.kodilla.testing.library.statistics;
 
 public class ForumStatistics {
 

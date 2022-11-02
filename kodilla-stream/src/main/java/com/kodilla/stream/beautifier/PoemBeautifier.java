@@ -22,28 +22,10 @@ Kod zadania prześlij do GitHub.
 
 public class PoemBeautifier {
 
-    public static void main(String[] args) {
 
+    public String beautify(String text, PoemDecorator poemDecorator) {
+        return poemDecorator.decorate(text);
     }
-
-    public void beautify() {
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

@@ -19,10 +19,11 @@ import static org.junit.jupiter.api.Assertions.*;
 // Śmiało możesz skorzystać też z adnotacji @BeforeEach aby przygotować dane testowe
 
 
+import com.kodilla.testing.library.statistics.ForumStatistics;
+import com.kodilla.testing.library.statistics.Statistics;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.util.Collection;
 import java.util.List;
 
 // Mamy napisać testy, które sprawdzą, czy te statystyki się popranie liczą dla różnych inputów,
