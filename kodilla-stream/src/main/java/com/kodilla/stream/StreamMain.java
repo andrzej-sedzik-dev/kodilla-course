@@ -7,9 +7,9 @@ import com.kodilla.stream.forumuser.ForumUser;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.reference.FunctionalCalculator;
 
+
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class StreamMain {
@@ -34,30 +34,22 @@ public class StreamMain {
         System.out.println(poemBeautifier.beautify("tekst do upiększenia", t -> t.toUpperCase() + "###"));
 
         Forum forum = new Forum();
-        //final List<ForumUser> result = forum.getUserList().stream() // ma byc mapa, a nie lista użytkowników
-        //final List<ForumUser> result = forum.getUserList().stream() // ma byc mapa, a nie lista użytkowników
-
-
-       // final List<ForumUser> result = forum.getUserList().stream();
-
-
-
+        // final List<ForumUser> result = forum.getUserList().stream() // ma byc mapa, a nie lista użytkowników
         // przy pomocy kolektora utworzy mapę par, w której rolę klucza będzie pełnił unikalny identyfikator użytkownika,
         // wyświetli otrzymaną mapę wynikową.
-        final List<ForumUser, Integer id> result = forum.
+
+        System.out.println("----------------------------------------");
+        final Map<Integer, List<ForumUser>> map = forum.getUserList()
+                .stream()
                 .filter(fu -> fu.getSex() == 'M')
                 .filter(fu -> fu.getDateOfBirth().getYear() <= 2002)
                 .filter(fu -> fu.getPostCount() > 0)
-
-               // .collect(Collectors.toList());
-               // przy pomocy kolektora utworzy mapę par,
-               // w której rolę klucza będzie pełnił unikalny identyfikator użytkownika,
-
-                .collect(Collectors.toMap());
-        System.out.println(result);
-
+                .collect(Collectors.groupingBy(ForumUser::getId));
+        map.forEach((n, users) -> {
+            System.out.println("Name: " + n);
+            users.forEach(System.out::println);
+            System.out.println("----------------------------------------");
+        });
     }
-
-
-
 }
+
