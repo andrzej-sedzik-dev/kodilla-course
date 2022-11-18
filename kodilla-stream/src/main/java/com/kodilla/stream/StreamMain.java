@@ -1,6 +1,7 @@
 package com.kodilla.stream;
 
 
+
 import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
@@ -8,11 +9,14 @@ import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.reference.FunctionalCalculator;
 
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
 public class StreamMain {
+
 
     public static void main(String[] args) {
         ExpressionExecutor expressionExecutor = new ExpressionExecutor();
@@ -50,6 +54,9 @@ public class StreamMain {
             users.forEach(System.out::println);
             System.out.println("----------------------------------------");
         });
+
+
     }
+
 }
 
