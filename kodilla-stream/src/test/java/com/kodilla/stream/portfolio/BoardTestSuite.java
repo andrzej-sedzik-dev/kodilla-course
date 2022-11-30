@@ -135,17 +135,17 @@ class BoardTestSuite {
         Board project = prepareTestData();
 
         //When
-        List<TaskList> inProgressTasks = new ArrayList<>();               // [1]
-        inProgressTasks.add(new TaskList("In progress"));                 // [2]
-        long longTasks = project.getTaskLists().stream()                  // [3]
-                .filter(inProgressTasks::contains)                             // [4]
-                .flatMap(tl -> tl.getTasks().stream())                         // [5]
-                .map(Task::getCreated)                                         // [6]
+        List<TaskList> inProgressTasks = new ArrayList<>();                         // [1]
+        inProgressTasks.add(new TaskList("In progress"));                     // [2]
+        long longTasks = project.getTaskLists().stream()                            // [3]
+                .filter(inProgressTasks::contains)                                  // [4]
+                .flatMap(tl -> tl.getTasks().stream())                              // [5]
+                .map(Task::getCreated)                                              // [6]
                 .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)  // [7]
-                .count();                                                      // [8]
+                .count();                                                           // [8]
 
         //Then
-        assertEquals(2, longTasks);                                       // [9]
+        assertEquals(2, longTasks);                                         // [9]
     }
 
 
@@ -183,9 +183,11 @@ class BoardTestSuite {
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
+
         double average = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(t -> t.getTasks().stream())
+
                 .map(task -> task.getCreated())
                 .mapToLong(d -> ChronoUnit.DAYS.between(d, LocalDate.now()))
                 .average().getAsDouble();
