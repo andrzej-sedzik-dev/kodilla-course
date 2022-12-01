@@ -25,32 +25,16 @@ class TaskListDaoTestSuite {
    void testFindByListName() {
 
       //Given
-      Task task = new Task("GYM", 1);
-      Task task2 = new Task("RUN", 2);
-      Task task3 = new Task("JOGA", 3);
-      Task task4 = new Task("RACE", 4);
-
-
-       TaskList taskList = new TaskList();
-      final List<Task> tasks = taskList.getTasks();
-
-
-
-      // stworzyc relacjie
-               // na tasklistdao zrobic save
-               // przy pomocy findby name.
-
+      TaskList taskList = new TaskList("Lista1", "description1");
+      taskListDao.save(taskList);
 
 
       //When
-      List<TaskList> lista = taskListDao.findByListName("GYM");
-      taskListDao.save();
-
+      List<TaskList> result = taskListDao.findByListName("Lista1");
 
 
       //Then
-      // TaskList taskList = lista.get(0);
-      System.out.println(taskList);
+      assertEquals(1, result.size());
 
    }
 
