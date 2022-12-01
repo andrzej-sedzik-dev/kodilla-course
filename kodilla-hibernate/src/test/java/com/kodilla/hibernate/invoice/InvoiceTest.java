@@ -6,14 +6,15 @@ import com.kodilla.hibernate.invoice.dao.ProductDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
-import static org.springframework.test.util.AssertionErrors.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 
+@Transactional
 @SpringBootTest
 class InvoiceTest {
 
@@ -58,19 +59,17 @@ class InvoiceTest {
         itemDao.save(item1);
         itemDao.save(item2);
 
-
-
-        // zrobić asercje - sprawdzajace czy wszystkie obiekty maja id
+        int id = invoice.getId();
+        // zrobić asercje sprawdzające, czy wszystkie obiekty mają id.
 
         // THEN
-        // Message, Object, Object.
-        assertEquals("ABC", id, vacuum);
-
-
+        assertEquals(2, invoice.getItems().size());
+        assertEquals(7, Integer.parseInt(invoice.getNumber()));
+        assertNotEquals(0, invoice.getId());
 
 
         // CleanUp
-        // taskDao.deleteById(id);
+        invoiceDao.deleteById(invoice.getId());
 
 
     }

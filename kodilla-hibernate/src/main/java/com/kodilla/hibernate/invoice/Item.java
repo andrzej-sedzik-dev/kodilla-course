@@ -11,7 +11,7 @@ public class Item {
     private int id;
 
     @ManyToOne
-    @JoinColumn("PRODUCT_ID")
+    @JoinColumn(name = "PRODUCT_ID")
     private Product product;
     private BigDecimal price;
 
@@ -20,7 +20,7 @@ public class Item {
     private BigDecimal value;
 
     @ManyToOne
-    @JoinColumn("INVOICE_ID")
+    @JoinColumn(name = "INVOICE_ID")
     private Invoice invoice;
 
 

@@ -5,7 +5,9 @@ package com.kodilla.hibernate.task;
 import com.kodilla.hibernate.tasklist.TaskList;
 import com.sun.istack.NotNull;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "TASKS")
@@ -16,7 +18,11 @@ public final class Task {
    private Date created;
    private int duration;
 
+   private TaskFinancialDetails taskFinancialDetails;
+
+
    private TaskList taskList;
+   List<Task> tasks = new ArrayList<>();
 
    public Task() {
    }
@@ -75,5 +81,29 @@ public final class Task {
 
    public void setTaskList(TaskList taskList) {
       this.taskList = taskList;
+   }
+
+   @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+   @JoinColumn(name = "TASKS_FINANCIALS_ID")
+   public TaskFinancialDetails getTaskFinancialDetails() {
+      return taskFinancialDetails;
+   }
+
+   public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+      this.taskFinancialDetails = taskFinancialDetails;
+   }
+
+   @OneToMany(
+           targetEntity = Task.class,
+           mappedBy = "taskList",
+           cascade = CascadeType.ALL,
+           fetch = FetchType.LAZY
+   )
+   public List<Task> getTasks() {
+      return tasks;
+   }
+
+   public void setTasks(List<Task> tasks) {
+      this.tasks = tasks;
    }
 }

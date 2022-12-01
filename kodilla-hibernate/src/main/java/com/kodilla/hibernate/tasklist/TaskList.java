@@ -58,7 +58,12 @@ public class TaskList {
     }
 
 
-    @OneToMany
+    @OneToMany(
+            targetEntity = Task.class,
+            mappedBy = "taskList",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     public List<Task> getTasks() {
         return tasks;
     }
