@@ -1,0 +1,23 @@
+{
+    "carName": "Fiesta",
+    "carBrand": "Ford",
+    "BuckedSeat":[
+                    {
+                        "material": "skin",
+                        "color" : "brown"
+                    },
+                    {
+                        "material": "sky",
+                        "color" : "yellow"
+                    },
+                    {
+                        "material": "fur",
+                        "color" : "orange"
+                    },
+                      {
+                        "material": "velour",
+                        "color" : "black"
+                    }
+    ],
+    "capacity": 1244
+}
