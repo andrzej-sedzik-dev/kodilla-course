@@ -1,0 +1,62 @@
+create table ISSUESLISTS
+(
+   ID SERIAL PRIMARY KEY,
+   NAME VARCHAR(100)
+);
+
+
+create table ISSUES
+(
+   ID SERIAL PRIMARY KEY,
+   ISSUESLIST_ID BIGINT UNSIGNED NOT NULL,
+   SUMMARY VARCHAR(100),
+   DESCRIPTION VARCHAR(100),
+   USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+   FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(ID),
+   FOREIGN KEY (ISSUESLIST_ID) REFERENCES ISSUESLISTS(ID)
+);
+
+Insert into ISSUESLISTS(NAME) Values ("ToDo");
+Insert into ISSUESLISTS(NAME) Values ("In progress");
+Insert into ISSUESLISTS(NAME) Values ("Done");
+
+select * from issueslists;
+
+
+#id, id_list, name_of_task, task_description, user
+
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (1, 2, "Z5", "odkurzyć", 1);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (2, 2, "Z4", "pozamiatać", 1);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (3, 2, "Z3", "obejrzeć tv", 1);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (4, 2, "Z2", "spacer", 2);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (5, 2, "Z1", "kino", 5);
+
+
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (6, 1, "Z6", "bieganie", 3);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (7, 1, "Z7", "pływanie", 3);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (8, 1, "Z8", "gra w piłkę", 2);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (9, 1, "Z9", "gra w siatkę", 4);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (10, 1, "Z10", "gra w tenisa", 4);
+
+
+
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (11, 3, "Z11", "zraobić rachunki", 3);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (12, 3, "Z12", "zrobić aplikację", 4);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (13, 3, "Z13", "nauczyć tabliczki mnożenia", 5);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (14, 3, "Z14", "uczyć angieslkiego", 1);
+Insert into ISSUES(ID, ISSUESLIST_ID, Summary,  description, USER_ID_ASSIGNEDTO) Values (15, 3, "Z15", "teatr", 2);
+
+
+select * from issues;
+
+
+
+
+
+
+
+
+
+
+
+
