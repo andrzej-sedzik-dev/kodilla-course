@@ -7,4 +7,5 @@ include 'kodilla-spring-web'
 include 'kodilla-hibernate'
 include 'kodilla-rps'
 include 'kodilla-exception'
+include 'kodilla-jdbc'
 
