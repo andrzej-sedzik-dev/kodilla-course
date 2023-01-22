@@ -8,4 +8,5 @@ include 'kodilla-hibernate'
 include 'kodilla-rps'
 include 'kodilla-exception'
 include 'kodilla-jdbc'
+include 'kodilla-good-patterns'
 
